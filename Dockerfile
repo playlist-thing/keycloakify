@@ -4,7 +4,7 @@ RUN apk update && \
     npm install -g yarn
 WORKDIR /app
 COPY . .
-RUN yarn install
+RUN yarn install --frozen-lockfile
 RUN yarn build-keycloak-theme
 
 FROM scratch
