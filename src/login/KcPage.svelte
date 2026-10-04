@@ -1,4 +1,7 @@
 <script lang="ts">
+  import '@fontsource-variable/work-sans';
+  import 'bootstrap-icons/font/bootstrap-icons.min.css';
+  import './main.css';
   import Template from '@keycloakify/svelte/login/Template.svelte';
   import UserProfileFormFields from '@keycloakify/svelte/login/components/UserProfileFormFields.svelte';
   import type { KcContext } from 'keycloakify/login/KcContext';
@@ -31,7 +34,7 @@
     {classes}
     {Template}
     {UserProfileFormFields}
-    doUseDefaultCss={true}
+    doUseDefaultCss={false}
     {doMakeUserConfirmPassword}
   ></Page>
 {/await}

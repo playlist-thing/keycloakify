@@ -1,0 +1,472 @@
+/* Design tokens matching the playlist-thing main application. */
+:root {
+  --danger: #f21a0f;
+  --warning: #ffd826;
+
+  --surface: #fff;
+  --surface-muted: #eee;
+  --text: #000;
+  --text-muted: #666;
+  --border: #999;
+  --border-hover: #222;
+  --accent: #222;
+
+  --radius-button: 3px;
+  --radius-input: 6px;
+  --radius-card: 10px;
+}
+
+.kcHtmlClass,
+.kcBodyClass,
+body {
+  margin: 0;
+  font-family: 'Work Sans Variable', 'Work Sans', Sans-Serif;
+  background-color: var(--surface-muted);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.kcLoginClass {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  box-sizing: border-box;
+  padding: 24px 16px;
+}
+
+/* Minimal header: just the realm name as plain text. */
+.kcHeaderClass,
+.kcHeaderWrapperClass {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+
+.kcHeaderWrapperClass {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: var(--text);
+}
+
+/* Flat card surface. */
+.kcFormCardClass {
+  margin-top: 16px;
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-card);
+  box-shadow: none;
+  max-width: 24rem;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 1.25em;
+}
+
+.kcFormHeaderClass {
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+
+#kc-page-title {
+  font-size: 1.1em;
+  font-weight: bold;
+  margin: 0;
+  margin-bottom: 0.75em;
+}
+
+/* Forms */
+.kcFormGroupClass {
+  margin-bottom: 0.75em;
+}
+
+.kcLabelClass {
+  font-size: 0.9em;
+  color: var(--text);
+  display: block;
+  margin-bottom: 0.25em;
+}
+
+/* Keep the required-field asterisk on the same line as the label. */
+.kcLabelWrapperClass {
+  display: flex;
+  align-items: center;
+  gap: 0.25em;
+}
+
+.kcLabelWrapperClass > .kcLabelClass {
+  margin-bottom: 0;
+}
+
+/* Push the top "required fields" note to the right. */
+.kcContentWrapperClass > .kcLabelWrapperClass {
+  justify-content: flex-end;
+}
+
+.kcInputClass {
+  box-sizing: border-box;
+  width: 100%;
+  background-color: var(--surface);
+  color: var(--text);
+  font-family: inherit;
+  font-size: 1em;
+  padding: 0.6em 0.75em;
+  border: 1px solid;
+  border-color: var(--border);
+  border-radius: var(--radius-input);
+}
+
+.kcInputClass:hover {
+  border-color: var(--border-hover);
+}
+
+.kcInputClass:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: -2px;
+}
+
+.kcInputErrorMessageClass {
+  display: block;
+  margin-top: 0.25em;
+  font-size: 0.85em;
+  color: var(--danger);
+}
+
+/* Remember me / forgot password row. */
+.kcFormSettingClass {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.5em;
+}
+
+.kcFormOptionsWrapperClass {
+  white-space: nowrap;
+}
+
+/* Back to login / submit button spacing on register. */
+.kcFormOptionsClass {
+  text-align: center;
+  margin-bottom: 0.75em;
+}
+
+.kcFormButtonsClass {
+  margin-top: 1.25em;
+}
+
+/* Password visibility toggle (kcInputGroup holds the input + toggle button). */
+.kcInputGroup {
+  position: relative;
+  display: block;
+}
+
+.kcInputGroup .kcInputClass {
+  padding-right: 2.4em;
+}
+
+.kcFormPasswordVisibilityButtonClass {
+  position: absolute;
+  right: 0.35em;
+  top: 50%;
+  transform: translateY(-50%);
+  border: 0;
+  background: transparent;
+  color: var(--accent);
+  cursor: pointer;
+  padding: 0.2em 0.35em;
+  line-height: 1;
+  font-size: 1em;
+}
+
+.kcFormPasswordVisibilityIconShow::before,
+.kcFormPasswordVisibilityIconHide::before {
+  font-family: 'bootstrap-icons';
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  line-height: 1;
+  display: inline-block;
+  font-size: 1em;
+}
+
+.kcFormPasswordVisibilityIconShow::before {
+  content: '\f341'; /* bi-eye */
+}
+
+.kcFormPasswordVisibilityIconHide::before {
+  content: '\f340'; /* bi-eye-slash */
+}
+
+/* Buttons */
+.kcButtonClass,
+.kcButtonPrimaryClass,
+.kcButtonBlockClass,
+.kcButtonLargeClass {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  line-height: 1.25;
+  font-family: inherit;
+  font-size: 1em;
+  text-align: center;
+  text-decoration: none;
+  background-color: var(--accent);
+  color: var(--surface);
+  padding: 0.6em 0.6em;
+  border: 0;
+  border-radius: var(--radius-button);
+  cursor: pointer;
+}
+
+.kcButtonClass:hover:not(:disabled) {
+  background-color: #444;
+}
+
+.kcButtonClass:active:not(:disabled) {
+  background-color: #000;
+}
+
+.kcButtonClass:disabled {
+  background-color: #fff;
+  color: var(--text-muted);
+  cursor: inherit;
+}
+
+.kcButtonBlockClass {
+  width: 100%;
+}
+
+/* Links */
+.kcFormOptionsWrapperClass a,
+.kcSignUpClass a,
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Checkbox */
+.checkbox input[type='checkbox'] {
+  accent-color: var(--accent);
+  margin-right: 0.4em;
+}
+
+.checkbox label {
+  font-size: 0.9em;
+}
+
+/* Alerts */
+.kcAlertClass,
+.alert-error,
+.alert-warning,
+.alert-success,
+.alert-info {
+  border-radius: var(--radius-button);
+  padding: 0.6em 0.8em;
+  font-size: 0.9em;
+  margin-bottom: 0.75em;
+}
+
+.kcAlertClass.alert-error,
+.kcAlertClass.pf-m-danger {
+  color: var(--danger);
+  background-color: rgba(242, 26, 15, 0.1);
+  border: 1px solid var(--danger);
+}
+
+.kcAlertClass.alert-warning {
+  color: #6a5b00;
+  background-color: rgba(255, 216, 38, 0.12);
+  border: 1px solid var(--warning);
+}
+
+.kcAlertClass.alert-success {
+  color: var(--text);
+  background-color: var(--surface-muted);
+  border: 1px solid var(--border);
+}
+
+.kcAlertClass.alert-info {
+  color: var(--text);
+  background-color: var(--surface-muted);
+  border: 1px solid var(--border);
+}
+
+.kcAlertTitleClass {
+  font-weight: bold;
+}
+
+/* Registration / info area */
+.kcSignUpClass,
+.kcInfoAreaWrapperClass,
+#kc-registration-container,
+#kc-registration {
+  font-size: 1em;
+  color: var(--text);
+  text-align: center;
+  padding-top: 1.25em;
+}
+
+/* Make the "register" call-to-action prominent. */
+#kc-registration {
+  font-size: 1.05em;
+  color: var(--text);
+  margin: 0;
+}
+
+#kc-registration a {
+  color: var(--accent);
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 1.05em;
+}
+
+#kc-registration a:hover {
+  text-decoration: underline;
+}
+
+/* Social login */
+.kcFormSocialAccountSectionClass {
+  border-top: 1px solid var(--border);
+  margin-top: 1.5em;
+  padding-top: 0.5em;
+}
+
+.kcFormSocialAccountSectionClass h2 {
+  font-size: 0.9em;
+  font-weight: bold;
+  color: var(--text);
+  margin: 0 0 0.75em;
+}
+
+.kcFormSocialAccountSectionClass hr {
+  display: none;
+}
+
+.kcFormSocialAccountListClass {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5em;
+}
+
+.kcFormSocialAccountListButtonClass {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  background-color: var(--surface-muted);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-button);
+  padding: 0.5em 0.9em;
+  text-decoration: none;
+  font-size: 0.9em;
+  cursor: pointer;
+}
+
+.kcFormSocialAccountListButtonClass:hover {
+  background-color: var(--surface);
+  border-color: var(--border-hover);
+  text-decoration: none;
+}
+
+.kcFormSocialAccountNameClass {
+  color: var(--text);
+}
+
+.kcFormSocialAccountListButtonClass i,
+.kcCommonLogoIdP {
+  color: var(--accent);
+}
+
+.kcCommonLogoIdP::before {
+  font-family: 'bootstrap-icons';
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  line-height: 1;
+  display: inline-block;
+  font-size: 1em;
+  content: '\f1be'; /* bi-box-arrow-in-right */
+}
+
+/* Locale / language dropdown */
+.kcLocaleMainClass {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+}
+
+.kcLocaleDropDownClass {
+  position: relative;
+}
+
+.kcLocaleDropDownClass button,
+#kc-current-locale-link {
+  background-color: transparent;
+  color: var(--accent);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-button);
+  padding: 0.3em 0.6em;
+  font-size: 0.85em;
+  cursor: pointer;
+}
+
+/* Hidden by default; menu-button-links.js toggles display when clicked. */
+.kcLocaleListClass {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-button);
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  padding: 7px;
+  list-style: none;
+  margin: 0;
+  min-width: 100%;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.kcLocaleItemClass {
+  color: var(--accent);
+  text-decoration: none;
+  display: block;
+  padding: 0.3em 0.6em;
+}
+
+.kcLocaleItemClass:hover {
+  background-color: var(--surface-muted);
+}
+
+/* Tooltip / restart flow */
+.kc-login-tooltip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  font-size: 0.85em;
+}
+
+/* Misc hardcoded utility classes used by pages. */
+.col-md-10,
+.col-md-12 {
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.subtitle,
+.required {
+  font-size: 0.8em;
+  color: var(--text-muted);
+}
