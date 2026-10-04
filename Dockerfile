@@ -8,4 +8,4 @@ RUN yarn install
 RUN yarn build-keycloak-theme
 
 FROM scratch
-COPY --from=build /app/dist_keycloak/keycloak-theme-for-kc-all-other-versions.jar .
+COPY --from=build /app/dist_keycloak/keycloak-theme-for-kc-all-other-versions.jar ./playlist-thing-theme.jar
